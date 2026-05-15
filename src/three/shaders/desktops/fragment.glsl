@@ -23,30 +23,33 @@ void main() {
     vec4 messageColor = texture2D(uTexture, messageUv);
     color = mix(color, messageColor, vMessageIntensity * messageColor.a * uMessageIntensity);
 
-    // Matrix Rain Effect (Targeting the scrolling screen)
+    // Refined Matrix Rain Effect (Targeting the scrolling screen)
     if (vScrollIntensity > 0.5) {
-        float grid = 40.0;
-        vec2 gUv = floor(vUv * grid);
+        float grid = 60.0; // Finer grid for smaller "characters"
+        vec2 gUv = floor(vUv * vec2(grid, grid * 0.5)); // Non-square grid
         float h = hash(vec2(gUv.x, 0.0));
         
-        float speed = 0.5 + h * 1.5;
-        float y = fract(vUv.y + uTime * speed * 0.2 + h);
+        float speed = 0.8 + h * 1.2;
+        float y = fract(vUv.y * 1.5 + uTime * speed * 0.15 + h);
         
-        float trail = smoothstep(0.0, 0.1, y) * smoothstep(1.0, 0.8, y);
-        float glow = exp(-y * 10.0);
+        // Sharper, thinner rain drops
+        float trail = smoothstep(0.0, 0.05, y) * smoothstep(1.0, 0.95, y);
+        float glow = exp(-y * 15.0);
         
-        vec3 matrixColor = vec3(0.0, 1.0, 0.3) * (trail + glow * 2.0);
+        // Digital Matrix Green
+        vec3 matrixColor = vec3(0.1, 1.0, 0.35) * (trail * 0.5 + glow * 2.0);
         
-        // Only apply if the texture underneath is dark (the code background)
-        float brightness = dot(color.rgb, vec3(0.299, 0.587, 0.114));
-        if (brightness < 0.3) {
-            color.rgb = mix(color.rgb, matrixColor, 0.4 * trail);
-        }
+        // Additive blending for a "light on screen" look
+        color.rgb += matrixColor * 0.4;
     }
 
-    // Add a slight scanline effect
-    float scanline = sin(vUv.y * 800.0) * 0.04;
+    // Subtle Scanline Effect
+    float scanline = sin(vUv.y * 1200.0) * 0.02;
     color.rgb -= scanline;
+
+    // Vignette to make it feel like a CRT/Monitor
+    float vignette = 1.0 - length(vUv - 0.5) * 0.5;
+    color.rgb *= vignette;
 
     gl_FragColor = vec4(color.rgb, 1.0);
 }
