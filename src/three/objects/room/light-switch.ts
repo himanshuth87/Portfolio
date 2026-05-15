@@ -1,7 +1,8 @@
-import { BoxGeometry, Mesh, MeshBasicMaterial, Group, Box3 } from "three";
+import { BoxGeometry, Mesh, MeshBasicMaterial, Group, Box3, Vector3 } from "three";
 import { room } from ".";
 import { raycast } from "../../utils/raycast";
 import { playSound } from "../../../features/sounds/utils/sounds";
+import { resources } from "../../../utils/resources";
 import { getRoomMaterial } from "../../common/materials";
 import gsap from "gsap";
 
@@ -14,23 +15,38 @@ const init = () => {
 
   group = new Group();
 
-  // Create switch base
-  const baseGeometry = new BoxGeometry(0.12, 0.18, 0.02);
-  const baseMaterial = new MeshBasicMaterial({ color: 0xcccccc });
+  // Create switch base - Large and Red for debugging
+  const baseGeometry = new BoxGeometry(0.3, 0.4, 0.05);
+  const baseMaterial = new MeshBasicMaterial({ color: 0xff0000 });
   const base = new Mesh(baseGeometry, baseMaterial);
 
   // Create actual toggle
-  const toggleGeometry = new BoxGeometry(0.04, 0.08, 0.03);
-  const toggleMaterial = new MeshBasicMaterial({ color: 0xffffff });
+  const toggleGeometry = new BoxGeometry(0.1, 0.2, 0.1);
+  const toggleMaterial = new MeshBasicMaterial({ color: 0xffff00 });
   const toggle = new Mesh(toggleGeometry, toggleMaterial);
-  toggle.position.z = 0.015;
+  toggle.position.z = 0.05;
 
   group.add(base);
   group.add(toggle);
 
-  // Final position on the back wall, slightly to the left of the blackboard
-  group.position.set(-1.8, 3.8, 1.2);
-  group.rotation.y = 0; 
+  // Find the 'frame' (tablet) to use as a reference
+  const resource = resources.items["room-model"];
+  const frameMesh = resource.scene.children.find((child: any) => child.name === "frame");
+  
+  if (frameMesh) {
+    frameMesh.geometry.computeBoundingBox();
+    const center = new Vector3();
+    frameMesh.geometry.boundingBox.getCenter(center);
+    
+    // Position it slightly above the tablet
+    group.position.copy(center);
+    group.position.y += 0.8;
+  } else {
+    // Fallback if frame is not found
+    group.position.set(0, 4, 1.5);
+  }
+
+  group.rotation.y = Math.PI / 2; // Face out from the wall
 
   room.group.add(group);
 
