@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { t } from "../../../i18n/utils/translate";
-import profilePhoto from "../../../assets/images/profile.png";
+import profilePhoto from "../../../assets/images/profile.webp";
 </script>
 
 <template>
