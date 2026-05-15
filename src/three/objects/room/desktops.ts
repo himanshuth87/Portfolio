@@ -52,7 +52,7 @@ const setupMesh = () => {
 
   geometry = mergeGeometries([desktop1.geometry, desktop2.geometry]);
 
-  const texture = resources.items["desktops-texture"];
+  const texture = resources.items["vscode-desktop-texture"];
   texture.colorSpace = LinearSRGBColorSpace;
   texture.flipY = false;
   texture.wrapS = RepeatWrapping;

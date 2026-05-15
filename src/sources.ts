@@ -19,6 +19,7 @@ import roomTexture from "./assets/textures/room.webp";
 import roomShadowTexture from "./assets/textures/room-shadow.webp";
 import hologramPlaneTexture from "./assets/textures/hologram-plane.webp";
 import profileTexture from "./assets/images/profile.webp";
+import vscodeDesktopTexture from "./assets/textures/vscode-desktop.png";
 
 type Source = {
   name: string;
@@ -50,4 +51,5 @@ export const sources = [
   { name: "room-texture", type: "texture", path: roomTexture },
   { name: "room-shadow-texture", type: "texture", path: roomShadowTexture },
   { name: "profile-texture", type: "texture", path: profileTexture },
+  { name: "vscode-desktop-texture", type: "texture", path: vscodeDesktopTexture },
 ] as const satisfies Source[];
