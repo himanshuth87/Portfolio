@@ -90,8 +90,8 @@ onUnmounted(() => {
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
     border: 1px solid rgba(245, 239, 230, 0.6);
-    border-radius: var(--radius-xl);
-    padding: var(--space-xl);
+    border-radius: var(--radius-lg);
+    padding: var(--space-md);
 
     @include mixins.mq("sm") {
       grid-column: 1 / 9;
@@ -99,7 +99,7 @@ onUnmounted(() => {
 
     @include mixins.mq("md") {
       grid-column: 1 / 7;
-      padding: var(--space-xl);
+      padding: var(--space-md);
     }
 
     @include mixins.mq("lg") {

@@ -85,7 +85,7 @@ const send = async () => {
         class="contact-form-input contact-form-textarea"
         :placeholder="t('contact-form-message-placeholder')"
         required
-        rows="5"
+        rows="3"
       ></textarea>
     </div>
     <div class="contact-form-footer">
@@ -114,27 +114,23 @@ const send = async () => {
 .contact-form {
   display: flex;
   flex-direction: column;
-  gap: var(--space-md);
+  gap: var(--space-xs);
   width: 100%;
 
   &-row {
     display: grid;
-    grid-template-columns: 1fr;
-    gap: var(--space-md);
-
-    @include mixins.mq("sm") {
-      grid-template-columns: 1fr 1fr;
-    }
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-xs);
   }
 
   &-field {
     display: flex;
     flex-direction: column;
-    gap: var(--space-xs);
+    gap: 4px;
   }
 
   &-label {
-    font-size: var(--font-size-sm);
+    font-size: var(--font-size-xxs);
     font-weight: 700;
     letter-spacing: 0.08em;
     text-transform: uppercase;
@@ -145,9 +141,9 @@ const send = async () => {
     width: 100%;
     background: transparent;
     border: var(--stroke-sm) solid var(--color-beige-700);
-    border-radius: var(--radius-md);
-    padding: var(--space-sm) var(--space-md);
-    font-size: var(--font-size-md);
+    border-radius: var(--radius-sm);
+    padding: 6px var(--space-sm);
+    font-size: var(--font-size-sm);
     font-family: inherit;
     color: var(--color-text-400);
     outline: none;
@@ -167,25 +163,25 @@ const send = async () => {
   }
 
   &-textarea {
-    min-height: 140px;
+    min-height: 72px;
     line-height: var(--line-height-copy);
   }
 
   &-footer {
     display: flex;
     align-items: center;
-    gap: var(--space-md);
+    gap: var(--space-sm);
     flex-wrap: wrap;
   }
 
   &-submit {
     border: none;
     border-radius: 100px;
-    height: 44px;
-    padding: 0 26px;
+    height: 36px;
+    padding: 0 20px;
     background-color: var(--color-orange-400);
     color: var(--color-white-400);
-    font-size: var(--font-size-md);
+    font-size: var(--font-size-sm);
     font-family: inherit;
     font-weight: 800;
     letter-spacing: 0.04em;
