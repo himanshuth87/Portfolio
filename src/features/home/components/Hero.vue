@@ -106,18 +106,18 @@ import AppearingText from "../../../components/AppearingText.vue";
     bottom: 0;
     right: -16px;
     z-index: 10;
-    transform: rotate(-5deg) translate(0, 75%);
+    transform: rotate(-5deg) translate(0, 90%);
     max-width: 280px;
 
     @include mixins.mq("sm") {
       right: -24px;
-      transform: rotate(-5deg) translate(0, 80%);
+      transform: rotate(-5deg) translate(0, 95%);
       max-width: 400px;
     }
 
     @include mixins.mq("lg") {
       right: -32px;
-      transform: rotate(-5deg) translate(0, 85%);
+      transform: rotate(-5deg) translate(0, 105%);
       max-width: 500px;
     }
   }
