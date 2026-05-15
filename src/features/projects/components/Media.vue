@@ -89,12 +89,10 @@ onMounted(async () => {
 <style scoped lang="scss">
 .project-media {
   width: 100%;
-  height: 100%;
   grid-column: 1 / 13;
   max-width: 900px;
   justify-self: center;
   position: relative;
-  aspect-ratio: 16 / 9;
 
   @include mixins.mq("md") {
     grid-column: 2 / 12;
@@ -155,14 +153,14 @@ onMounted(async () => {
 
   &-image {
     width: 100%;
-    height: 100%;
-    object-fit: cover;
+    height: auto;
+    display: block;
   }
 
   &-video {
     width: 100%;
-    height: 100%;
-    object-fit: cover;
+    height: auto;
+    display: block;
   }
 
   &-content {
@@ -170,7 +168,6 @@ onMounted(async () => {
     border-radius: var(--radius-lg);
     background-color: var(--color-background-300);
     width: 100%;
-    height: 100%;
   }
 }
 </style>

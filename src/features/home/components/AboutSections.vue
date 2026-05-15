@@ -23,7 +23,7 @@ import profilePhoto from "../../../assets/images/profile.webp";
   display: flex;
   flex-direction: column;
   gap: var(--space-xl);
-  background: var(--color-background-200);
+  background: var(--color-beige-500);
 
   @include mixins.landscape {
     display: none;
@@ -49,7 +49,7 @@ import profilePhoto from "../../../assets/images/profile.webp";
     height: 200px;
     border-radius: var(--radius-xl);
     overflow: hidden;
-    border: var(--stroke-lg) solid var(--color-accent);
+    border: var(--stroke-lg) solid var(--color-orange-400);
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
 
     @include mixins.mq("md") {
@@ -76,13 +76,13 @@ import profilePhoto from "../../../assets/images/profile.webp";
     font-size: var(--font-size-title-sm);
     font-weight: 900;
     text-transform: uppercase;
-    color: var(--color-accent);
+    color: var(--color-orange-400);
   }
 
   &-content {
     font-size: var(--font-size-lg);
     line-height: 1.6;
-    color: var(--color-text);
+    color: var(--color-text-400);
   }
 }
 </style>

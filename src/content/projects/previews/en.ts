@@ -1,7 +1,7 @@
-import thumbnailPriority from "../../../assets/thumbnails/priority.png";
-import thumbnailDms from "../../../assets/thumbnails/dms.png";
-import thumbnailSptours from "../../../assets/thumbnails/sptours.png";
-import thumbnailTasktracker from "../../../assets/thumbnails/tasktracker.png";
+import thumbnailPriority from "../../../assets/images/projects/priority/ecommerce.jpeg";
+import thumbnailDms from "../../../assets/images/projects/dms/dms1.jpeg";
+import thumbnailSptours from "../../../assets/images/projects/sptours/sptours and travel.jpeg";
+import thumbnailTasktracker from "../../../assets/images/projects/tasktracker/tasktracker-0.png";
 
 import type { ProjectPreview } from "../../types";
 

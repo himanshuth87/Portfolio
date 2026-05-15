@@ -99,7 +99,7 @@ const getInTouchClassNames = computed(() => {
       <Button
         renderAs="a"
         variant="border"
-        href="/resume.pdf"
+        href="https://www.linkedin.com/in/himanshu--thakur"
         target="_blank"
         size="sm"
         class="header-resume"
@@ -208,7 +208,7 @@ const getInTouchClassNames = computed(() => {
   &-resume {
     display: none;
 
-    @include mixins.mq("md") {
+    @include mixins.mq("sm") {
       display: flex;
     }
   }
