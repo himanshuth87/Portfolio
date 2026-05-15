@@ -22,11 +22,13 @@ let scrollInterval: gsap.core.Tween | null = null;
 const uniforms = {
   uScrollDepth: { value: 0 },
   uMessageIntensity: { value: 0 },
+  uTime: { value: 0 },
 };
 
 const init = () => {
   setupMesh();
   startScrollInterval();
+  gsap.ticker.add(tick);
 };
 
 const setupMesh = () => {
@@ -107,12 +109,17 @@ const scroll = () => {
   playSound("mouseWheel");
 };
 
+const tick = (time: number) => {
+  uniforms.uTime.value = time;
+};
+
 const showMessage = () => {
   if (messageTween) messageTween.kill();
   messageTween = gsap.fromTo(uniforms.uMessageIntensity, { value: 1 }, { value: 0, duration: 1, delay: 2 });
 };
 
 const destroy = () => {
+  gsap.ticker.remove(tick);
   material?.dispose();
   material = null;
   geometry?.dispose();
