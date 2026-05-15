@@ -84,6 +84,7 @@ onUnmounted(() => {
 
   &-form-wrapper {
     grid-column: 1 / 13;
+    max-width: 480px;
 
     // Glass card — lifts the form off the 3D canvas behind it
     background: rgba(245, 239, 230, 0.9);
@@ -94,16 +95,16 @@ onUnmounted(() => {
     padding: var(--space-md);
 
     @include mixins.mq("sm") {
-      grid-column: 1 / 9;
+      grid-column: 1 / 8;
     }
 
     @include mixins.mq("md") {
-      grid-column: 1 / 7;
+      grid-column: 1 / 6;
       padding: var(--space-md);
     }
 
     @include mixins.mq("lg") {
-      grid-column: 2 / 7;
+      grid-column: 2 / 6;
     }
   }
 }

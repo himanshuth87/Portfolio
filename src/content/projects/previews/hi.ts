@@ -1,4 +1,4 @@
-import thumbnailPriority from "../../../assets/images/projects/priority/ecommerce.jpeg";
+import thumbnailPriority from "../../../assets/images/projects/traworld/primium page.jpeg";
 import thumbnailDms from "../../../assets/images/projects/dms/dms1.jpeg";
 import thumbnailSptours from "../../../assets/images/projects/sptours/sptours and travel.jpeg";
 import thumbnailTasktracker from "../../../assets/images/projects/tasktracker/tasktracker-0.png";
