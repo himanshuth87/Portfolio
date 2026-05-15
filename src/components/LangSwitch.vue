@@ -5,26 +5,37 @@ import { changeLocale } from "../i18n/utils/locale";
 import { LOCALES } from "../i18n/constants";
 import type { Locale } from "../i18n/types";
 
-const handleLangSwitch = () => {
-  const keys = Object.keys(LOCALES) as Locale[];
-  const currentIndex = locale.value ? keys.indexOf(locale.value) : -1;
-  const nextIndex = (currentIndex + 1) % keys.length;
-  const nextLocale = keys[nextIndex];
-  if (nextLocale) {
-    changeLocale(nextLocale);
-  }
+const handleLocaleChange = (newLocale: Locale) => {
+  changeLocale(newLocale);
 };
 </script>
 
 <template>
-  <Button
-    variant="border"
-    size="sm"
-    @click="handleLangSwitch"
-    data-cursor="circle-white"
-    data-sound="click"
-    data-hoversound="hover"
-  >
-    {{ locale ? LOCALES[locale].name : "EN" }}
-  </Button>
+  <div class="lang-switch">
+    <Button
+      v-for="(info, key) in LOCALES"
+      :key="key"
+      :variant="locale === key ? 'accent' : 'border'"
+      size="sm"
+      @click="handleLocaleChange(key as Locale)"
+      data-cursor="circle-white"
+      data-sound="click"
+      data-hoversound="hover"
+    >
+      {{ info.name }}
+    </Button>
+  </div>
 </template>
+
+<style scoped lang="scss">
+.lang-switch {
+  display: flex;
+  gap: var(--space-xs);
+  flex-wrap: wrap;
+  justify-content: center;
+
+  @include mixins.mq("md") {
+    justify-content: flex-start;
+  }
+}
+</style>
