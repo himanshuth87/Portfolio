@@ -84,7 +84,6 @@ onUnmounted(() => {
 
   &-form-wrapper {
     grid-column: 1 / 13;
-    padding-top: var(--space-lg);
 
     // Glass card — lifts the form off the 3D canvas behind it
     background: rgba(245, 239, 230, 0.9);
@@ -95,17 +94,16 @@ onUnmounted(() => {
     padding: var(--space-xl);
 
     @include mixins.mq("sm") {
-      grid-column: 1 / 8;
+      grid-column: 1 / 9;
     }
 
     @include mixins.mq("md") {
-      grid-column: 7 / 13;
-      align-self: center;
+      grid-column: 1 / 7;
       padding: var(--space-xl);
     }
 
     @include mixins.mq("lg") {
-      grid-column: 7 / 12;
+      grid-column: 2 / 7;
     }
   }
 }
