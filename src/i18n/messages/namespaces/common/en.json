@@ -1,5 +1,6 @@
 {
   "about": "About",
+  "age-label": "Age",
   "about-intro": "Full-Stack Developer building production-grade platforms for e-commerce, B2B distribution, ERP workflows, and manufacturing operations.<br />Transforms operational challenges into scalable digital solutions using React, FastAPI, Node.js, PostgreSQL, and AI-powered automation.",
   "about-tagline": "Builds production-grade platforms — from B2C e-commerce to B2B distribution systems — that scale, automate, and deliver real business impact.",
   "back-to-home": "Back to home",

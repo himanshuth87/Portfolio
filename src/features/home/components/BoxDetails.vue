@@ -109,7 +109,6 @@ const handleTimelineCreated = (timeline: gsap.core.Timeline, delay: number) => {
             :duration="0.35"
             @timeline:created="(tl: gsap.core.Timeline) => handleTimelineCreated(tl, 0)"
           />
-        </div>
         <div class="box-details-items">
           <div class="box-details-item">
             <PinIcon class="box-details-icon" />
@@ -120,6 +119,15 @@ const handleTimelineCreated = (timeline: gsap.core.Timeline, delay: number) => {
               :steps="3"
               :duration="0.35"
               @timeline:created="(tl: gsap.core.Timeline) => handleTimelineCreated(tl, 0.1)"
+            />
+          </div>
+          <div class="box-details-item">
+            <AppearingText
+              class="box-details-content-copy"
+              :text="t('age-label') + ': 24'"
+              :steps="2"
+              :duration="0.35"
+              @timeline:created="(tl: gsap.core.Timeline) => handleTimelineCreated(tl, 0.2)"
             />
           </div>
         </div>
