@@ -14,22 +14,22 @@ const init = () => {
 
   group = new Group();
 
-  // Create switch base - Red for debugging
-  const baseGeometry = new BoxGeometry(0.3, 0.4, 0.05);
-  const baseMaterial = new MeshBasicMaterial({ color: 0xff0000 });
+  // Create switch base
+  const baseGeometry = new BoxGeometry(0.12, 0.18, 0.02);
+  const baseMaterial = new MeshBasicMaterial({ color: 0xcccccc });
   const base = new Mesh(baseGeometry, baseMaterial);
 
   // Create actual toggle
-  const toggleGeometry = new BoxGeometry(0.1, 0.2, 0.1);
-  const toggleMaterial = new MeshBasicMaterial({ color: 0xffff00 }); // Yellow toggle
+  const toggleGeometry = new BoxGeometry(0.04, 0.08, 0.03);
+  const toggleMaterial = new MeshBasicMaterial({ color: 0xffffff });
   const toggle = new Mesh(toggleGeometry, toggleMaterial);
-  toggle.position.z = 0.05;
+  toggle.position.z = 0.015;
 
   group.add(base);
   group.add(toggle);
 
-  // Debug position: closer to the center
-  group.position.set(-1, 3, 2.5);
+  // Final position on the back wall, slightly to the left of the blackboard
+  group.position.set(-1.8, 3.8, 1.2);
   group.rotation.y = 0; 
 
   room.group.add(group);
