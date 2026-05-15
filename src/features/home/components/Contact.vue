@@ -3,6 +3,7 @@ import { ref, onMounted, onUnmounted } from "vue";
 import { transitions } from "../../../animations";
 import { t } from "../../../i18n/utils/translate";
 import Social from "../../../components/Social.vue";
+import ContactForm from "./ContactForm.vue";
 
 const contactElement = ref<HTMLElement | null>(null);
 
@@ -23,6 +24,9 @@ onUnmounted(() => {
       <h2 class="contact-title" v-html="t('lets-work-together')"></h2>
       <Social variant="background" />
     </div>
+    <div class="contact-form-wrapper">
+      <ContactForm />
+    </div>
   </div>
 </template>
 
@@ -34,9 +38,11 @@ onUnmounted(() => {
   min-height: calc(var(--lvh) * 100);
   padding: var(--space-outer);
   padding-top: var(--space-lg);
+  align-content: center;
 
   @include mixins.mq("md") {
     padding-top: var(--space-xxl);
+    align-content: start;
   }
 
   &-content {
@@ -73,6 +79,25 @@ onUnmounted(() => {
 
     @include mixins.mq("xl") {
       font-size: var(--font-size-title-xl);
+    }
+  }
+
+  &-form-wrapper {
+    grid-column: 1 / 13;
+    padding-top: var(--space-lg);
+
+    @include mixins.mq("sm") {
+      grid-column: 1 / 8;
+    }
+
+    @include mixins.mq("md") {
+      grid-column: 7 / 13;
+      padding-top: var(--space-lg);
+      align-self: center;
+    }
+
+    @include mixins.mq("lg") {
+      grid-column: 7 / 12;
     }
   }
 }

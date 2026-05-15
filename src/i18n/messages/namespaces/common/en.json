@@ -27,5 +27,15 @@
   "source-code": "Source Code",
   "switch-to-project": "Switch to project {project}",
   "version": "Version",
-  "view-project": "View project"
+  "view-project": "View project",
+  "contact-form-name": "Name",
+  "contact-form-name-placeholder": "Your name",
+  "contact-form-email": "Email",
+  "contact-form-email-placeholder": "your@email.com",
+  "contact-form-message": "Message",
+  "contact-form-message-placeholder": "Tell me about your project...",
+  "contact-form-send": "Send message",
+  "contact-form-sending": "Sending...",
+  "contact-form-success": "Message sent! I'll get back to you soon.",
+  "contact-form-error": "Something went wrong. Please try again."
 }

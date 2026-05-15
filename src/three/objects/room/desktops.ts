@@ -10,9 +10,8 @@ import { animations as avatarAnimations } from "../avatar/animations";
 import { leftDesktop as avatarLeftDesktop } from "../avatar/left-desktop";
 import { playSound } from "../../../features/sounds/utils/sounds";
 import { raycast } from "../../utils/raycast";
-import { getRoomMaterial } from "../../common/materials";
 import { messagePopup } from "./message-popup";
-import { Box3, MeshBasicMaterial } from "three";
+import { Box3 } from "three";
 
 import type { Object3D, Material, BufferGeometry } from "three";
 
@@ -90,22 +89,9 @@ const setupMesh = () => {
   raycast.boxesToCheck.push(clickableMonitor);
 };
 
-let isDarkMode = false;
 const handleMonitorClick = () => {
-  playSound("notification");
   showMessage();
   messagePopup.show();
-
-  // Toggle Dark Mode effect
-  isDarkMode = !isDarkMode;
-  const mat = getRoomMaterial() as MeshBasicMaterial;
-  gsap.to(mat.color, {
-    r: isDarkMode ? 0.2 : 1,
-    g: isDarkMode ? 0.2 : 1,
-    b: isDarkMode ? 0.2 : 1,
-    duration: 0.8,
-    ease: "power2.inOut",
-  });
 };
 
 const startScrollInterval = () => {

@@ -113,6 +113,7 @@ const destroy = () => {
   penguin.destroy();
   music.destroy();
   lightSwitch.destroy();
+  frame.destroy();
 };
 
 export const room = { init, destroy, group, chairScrollRotation };

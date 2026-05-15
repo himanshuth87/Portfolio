@@ -27,5 +27,15 @@
   "source-code": "सोर्स कोड",
   "switch-to-project": "प्रोजेक्ट {project} पर स्विच करें",
   "version": "संस्करण",
-  "view-project": "प्रोजेक्ट देखें"
+  "view-project": "प्रोजेक्ट देखें",
+  "contact-form-name": "नाम",
+  "contact-form-name-placeholder": "आपका नाम",
+  "contact-form-email": "ईमेल",
+  "contact-form-email-placeholder": "your@email.com",
+  "contact-form-message": "संदेश",
+  "contact-form-message-placeholder": "अपने प्रोजेक्ट के बारे में बताएं...",
+  "contact-form-send": "संदेश भेजें",
+  "contact-form-sending": "भेज रहे हैं...",
+  "contact-form-success": "संदेश भेज दिया गया! मैं जल्द ही आपसे संपर्क करूंगा।",
+  "contact-form-error": "कुछ गलत हुआ। कृपया पुनः प्रयास करें।"
 }
