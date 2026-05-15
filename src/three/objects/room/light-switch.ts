@@ -67,18 +67,28 @@ const init = () => {
   raycast.boxesToCheck.push(clickableSwitch);
 };
 
+const tick = () => {
+  if (group && clickableSwitch) {
+    clickableSwitch.setFromObject(group);
+    clickableSwitch.expandByScalar(0.1); // Make it easier to click
+  }
+};
+
 const toggleDarkMode = () => {
   isDarkMode = !isDarkMode;
+  console.log("Light switch toggled. Dark Mode:", isDarkMode);
   playSound("click");
 
   const mat = getRoomMaterial() as MeshBasicMaterial;
-  gsap.to(mat.color, {
-    r: isDarkMode ? 0.2 : 1,
-    g: isDarkMode ? 0.2 : 1,
-    b: isDarkMode ? 0.2 : 1,
-    duration: 0.8,
-    ease: "power2.inOut",
-  });
+  if (mat) {
+    gsap.to(mat.color, {
+      r: isDarkMode ? 0.2 : 1,
+      g: isDarkMode ? 0.2 : 1,
+      b: isDarkMode ? 0.2 : 1,
+      duration: 0.8,
+      ease: "power2.inOut",
+    });
+  }
 };
 
 const destroy = () => {
@@ -90,4 +100,4 @@ const destroy = () => {
   group = null;
 };
 
-export const lightSwitch = { init, destroy };
+export const lightSwitch = { init, tick, destroy };

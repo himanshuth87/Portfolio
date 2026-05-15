@@ -100,6 +100,7 @@ const tick = () => {
 
   penguin.tick();
   music.tick();
+  lightSwitch.tick();
 };
 
 const destroy = () => {
