@@ -8,7 +8,7 @@ const init = (targetFrame: Mesh) => {
   // Fix orientation for our clean plane
   texture.flipY = false;
   texture.center.set(0.5, 0.5);
-  texture.rotation = -Math.PI / 2; // Rotate to fix the sideways appearance
+  texture.rotation = Math.PI / 2; // Try opposite rotation
 
   // Create a clean material for the photo
   const material = new MeshBasicMaterial({ 
