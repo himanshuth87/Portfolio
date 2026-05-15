@@ -107,6 +107,7 @@ watchEffect((onInvalidate) => {
     color: var(--color-white-400);
     font-family: "ProFontWindows";
     text-transform: uppercase;
+    white-space: nowrap;
 
     &-size {
       &-sm {
