@@ -1,7 +1,6 @@
-import priority0 from "../../../assets/images/projects/priority/priority-0.png";
-import priority1 from "../../../assets/images/projects/priority/priority-1.png";
-import junior0 from "../../../assets/images/projects/junior/junior-0.png";
-import traworld0 from "../../../assets/images/projects/traworld/traworld-0.png";
+import priority0 from "../../../assets/images/projects/priority/ecommerce.jpeg";
+import junior0 from "../../../assets/images/projects/junior/junior page.jpeg";
+import traworld0 from "../../../assets/images/projects/traworld/primium page.jpeg";
 
 import type { ProjectContent } from "../../types";
 
@@ -41,15 +40,5 @@ export default {
         caption: "Traworld — Luxury Luggage",
       },
     },
-    {
-      type: "media",
-      props: {
-        type: "image",
-        src: priority1,
-        alt: "Admin Portal",
-        caption: "Shared Admin & Operations Portal",
-      },
-    },
   ],
 } as const satisfies ProjectContent;
-

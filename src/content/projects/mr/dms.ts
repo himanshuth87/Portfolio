@@ -1,5 +1,5 @@
-import dms0 from "../../../assets/images/projects/dms/dms-0.png";
-import dms1 from "../../../assets/images/projects/dms/dms-1.png";
+import dms0 from "../../../assets/images/projects/dms/dms1.jpeg";
+import dms1 from "../../../assets/images/projects/dms/dms2.jpeg";
 
 import type { ProjectContent } from "../../types";
 

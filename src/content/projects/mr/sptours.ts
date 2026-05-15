@@ -1,4 +1,4 @@
-import sptours0 from "../../../assets/images/projects/sptours/sptours-0.png";
+import sptours0 from "../../../assets/images/projects/sptours/sptours and travel.jpeg";
 
 import type { ProjectContent } from "../../types";
 
