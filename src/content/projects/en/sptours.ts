@@ -9,7 +9,7 @@ export default {
   videoBorder: false,
   live: "https://sptoursntravels.com/",
   description:
-    "A business website for SP Tours & Travels — Mumbai's vehicle rental service specialising in Tempo Traveller and Ertiga hire for group tours, corporate trips, and family travel.<br/><br/>Built with React and TypeScript, the site features a clean service showcase, vehicle listings, booking inquiry flow, and mobile-first responsive design optimised for local search traffic.",
+    "A full-featured travel business website for SP Tours & Travels — Mumbai's premium vehicle rental service based in Kurla East.<br/><br/>Built with React and TypeScript, the site showcases a premium fleet (Tempo Traveller 12–17 seater at ₹25/km, Maruti Ertiga 6+1 seater at ₹15/km), an interactive booking form with live price estimation, WhatsApp booking integration, and a contact section with Google Maps embed. Key highlights: GPS-tracked vehicles, 24/7 availability, and 100% customer satisfaction guarantee.",
   components: [
     {
       type: "media",
