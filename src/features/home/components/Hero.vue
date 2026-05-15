@@ -12,7 +12,7 @@ import AppearingText from "../../../components/AppearingText.vue";
       <div class="hero-content-inner" id="hero-content-inner">
         <div class="hero-content-copys">
           <h1 class="hero-title" v-html="t('name')"></h1>
-          <Banner class="hero-banner" :copy="t('job-title')" v-if="!preloaderVisible" animated />
+          <Banner class="hero-banner" :copy="t('job-title')" v-if="!preloaderVisible" animated size="sm" />
         </div>
       </div>
     </div>
@@ -106,16 +106,16 @@ import AppearingText from "../../../components/AppearingText.vue";
     bottom: 0;
     right: -16px;
     z-index: 10;
-    transform: rotate(-5deg) translate(0, 85%);
+    transform: rotate(-5deg) translate(0, 110%);
 
     @include mixins.mq("sm") {
       right: -24px;
-      transform: rotate(-5deg) translate(0, 90%);
+      transform: rotate(-5deg) translate(0, 120%);
     }
 
     @include mixins.mq("lg") {
       right: -32px;
-      transform: rotate(-5deg) translate(0, 100%);
+      transform: rotate(-5deg) translate(0, 130%);
     }
   }
 }
