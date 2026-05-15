@@ -41,8 +41,8 @@ onUnmounted(() => {
   align-content: center;
 
   @include mixins.mq("md") {
-    padding-top: var(--space-xxl);
-    align-content: start;
+    padding-top: 0;
+    align-content: center;
   }
 
   &-content {
@@ -60,7 +60,7 @@ onUnmounted(() => {
     @include mixins.mq("md") {
       gap: var(--space-xl);
       grid-column: 1 / 6;
-      padding-top: var(--space-lg);
+      padding-top: 0;
     }
 
     @include mixins.mq("lg") {
@@ -86,19 +86,33 @@ onUnmounted(() => {
     grid-column: 1 / 13;
     padding-top: var(--space-lg);
 
+    // Glass card — lifts the form off the 3D canvas behind it
+    background: rgba(245, 239, 230, 0.9);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(245, 239, 230, 0.6);
+    border-radius: var(--radius-xl);
+    padding: var(--space-xl);
+
     @include mixins.mq("sm") {
       grid-column: 1 / 8;
     }
 
     @include mixins.mq("md") {
       grid-column: 7 / 13;
-      padding-top: var(--space-lg);
       align-self: center;
+      padding: var(--space-xl);
     }
 
     @include mixins.mq("lg") {
       grid-column: 7 / 12;
     }
   }
+}
+
+// Dark mode overrides for the glass card
+:global(html.dark) .contact-form-wrapper {
+  background: rgba(10, 10, 10, 0.88);
+  border-color: rgba(255, 255, 255, 0.07);
 }
 </style>
