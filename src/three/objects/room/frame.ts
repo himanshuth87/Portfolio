@@ -20,6 +20,13 @@ const init = (targetFrame: Mesh) => {
   const geometry = new PlaneGeometry(1, 1);
   const photoMesh = new Mesh(geometry, material);
 
+  // Add a border frame
+  const borderGeometry = new PlaneGeometry(1.05, 1.05); // 5% larger for the border
+  const borderMaterial = new MeshBasicMaterial({ color: 0xffffff }); // Professional white border
+  const borderMesh = new Mesh(borderGeometry, borderMaterial);
+  borderMesh.position.z = -0.01; // Place slightly behind the photo
+  photoMesh.add(borderMesh);
+
   // Calculate size and center from targetFrame bounding box
   targetFrame.geometry.computeBoundingBox();
   const box = targetFrame.geometry.boundingBox;
@@ -38,8 +45,9 @@ const init = (targetFrame: Mesh) => {
     const height = size.y;
     photoMesh.scale.set(width, height, 1);
     
-    // Face the room center
+    // Face the room center and apply anticlockwise rotation as requested
     photoMesh.rotation.y = Math.PI / 2;
+    photoMesh.rotation.z = Math.PI / 2; // Anticlockwise rotation
   }
 
   // Increased offset to 0.02 to clear the "black spot" and prevent z-fighting
