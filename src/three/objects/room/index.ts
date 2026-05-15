@@ -1,6 +1,6 @@
 import { resources } from "../../../utils/resources";
 import { scene } from "../../core/scene";
-import { Euler, Group, Mesh } from "three";
+import { Euler, Group, Mesh, MeshBasicMaterial } from "three";
 import { getRoomMaterial } from "../../common/materials";
 import { sceneWeights } from "../../../animations/scenes";
 import gsap from "gsap";
@@ -10,6 +10,7 @@ import { mouse } from "./mouse";
 import { messagePopup } from "./message-popup";
 import { penguin } from "./penguin";
 import { music } from "./music";
+import { frame } from "./frame";
 
 import type { Object3D } from "three";
 
@@ -42,6 +43,7 @@ const init = () => {
     penguin.init(objects.penguin, { left: objects["penguin-wing-left"], right: objects["penguin-wing-right"] });
 
   if (objects?.music) music.init(objects.music);
+  if (objects?.frame) frame.init(objects.frame);
 };
 
 const initObjects = () => {
@@ -67,17 +69,19 @@ const initObjects = () => {
   Object.values(objects).forEach((object) => {
     if (!object) return;
     const mat = getRoomMaterial();
-    object.material = mat;
+    if (object.name !== "frame") {
+      object.material = mat;
+    }
     group.add(object);
 
     if (object.name === "carpet") {
       object.renderOrder = -10;
       object.onBeforeRender = () => {
-        mat.depthWrite = false;
+        (mat as MeshBasicMaterial).depthWrite = false;
       };
 
       object.onAfterRender = () => {
-        mat.depthWrite = true;
+        (mat as MeshBasicMaterial).depthWrite = true;
       };
     }
   });
