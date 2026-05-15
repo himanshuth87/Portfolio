@@ -7,8 +7,8 @@ const init = (targetFrame: Mesh) => {
 
   // Fix orientation for our clean plane
   texture.flipY = false;
-  texture.rotation = 0;
   texture.center.set(0.5, 0.5);
+  texture.rotation = -Math.PI / 2; // Rotate to fix the sideways appearance
 
   // Create a clean material for the photo
   const material = new MeshBasicMaterial({ 
@@ -34,16 +34,13 @@ const init = (targetFrame: Mesh) => {
     photoMesh.position.copy(center);
     
     // Scale it to match the tablet's dimensions
-    // We use the largest dimensions for width/height
-    const width = Math.max(size.x, size.z);
+    // For a tablet on the right wall, Y is height and Z is width
+    const width = size.z;
     const height = size.y;
     photoMesh.scale.set(width, height, 1);
     
-    // Adjust rotation to face forward (out of the tablet)
-    // If it's on the right wall, it might need to be rotated on Y
-    if (size.z > size.x) {
-        photoMesh.rotation.y = Math.PI / 2;
-    }
+    // Face the room center (out of the right wall)
+    photoMesh.rotation.y = Math.PI / 2;
   }
 
   // Tiny offset to prevent z-fighting
