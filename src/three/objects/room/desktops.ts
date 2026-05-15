@@ -9,12 +9,17 @@ import { sceneWeights } from "../../../animations/scenes";
 import { animations as avatarAnimations } from "../avatar/animations";
 import { leftDesktop as avatarLeftDesktop } from "../avatar/left-desktop";
 import { playSound } from "../../../features/sounds/utils/sounds";
+import { raycast } from "../../utils/raycast";
+import { getRoomMaterial } from "../../common/materials";
+import { messagePopup } from "./message-popup";
+import { Box3, MeshBasicMaterial } from "three";
 
 import type { Object3D, Material, BufferGeometry } from "three";
 
 let mesh: Mesh | null = null;
 let material: Material | null = null;
 let geometry: BufferGeometry | null = null;
+let clickableMonitor: any = null;
 
 let messageTween: gsap.core.Tween | null = null;
 let scrollInterval: gsap.core.Tween | null = null;
@@ -72,6 +77,35 @@ const setupMesh = () => {
   mesh = new Mesh(geometry, material);
 
   room.group.add(mesh);
+
+  // Interaction setup
+  const boundingBox = new Box3().setFromObject(mesh);
+  clickableMonitor = Object.assign(boundingBox, {
+    onClick: () => {
+      handleMonitorClick();
+    },
+    hoverSound: "buttonHover",
+  });
+
+  raycast.boxesToCheck.push(clickableMonitor);
+};
+
+let isDarkMode = false;
+const handleMonitorClick = () => {
+  playSound("notification");
+  showMessage();
+  messagePopup.show();
+
+  // Toggle Dark Mode effect
+  isDarkMode = !isDarkMode;
+  const mat = getRoomMaterial() as MeshBasicMaterial;
+  gsap.to(mat.color, {
+    r: isDarkMode ? 0.2 : 1,
+    g: isDarkMode ? 0.2 : 1,
+    b: isDarkMode ? 0.2 : 1,
+    duration: 0.8,
+    ease: "power2.inOut",
+  });
 };
 
 const startScrollInterval = () => {
@@ -120,6 +154,13 @@ const showMessage = () => {
 
 const destroy = () => {
   gsap.ticker.remove(tick);
+
+  if (clickableMonitor) {
+    const index = raycast.boxesToCheck.indexOf(clickableMonitor);
+    if (index !== -1) raycast.boxesToCheck.splice(index, 1);
+    clickableMonitor = null;
+  }
+
   material?.dispose();
   material = null;
   geometry?.dispose();
