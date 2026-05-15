@@ -79,6 +79,9 @@ const toggleDarkMode = () => {
   console.log("Light switch toggled. Dark Mode:", isDarkMode);
   playSound("click");
 
+  // Toggle CSS class for the whole website
+  document.documentElement.classList.toggle("dark", isDarkMode);
+
   const mat = getRoomMaterial() as MeshBasicMaterial;
   if (mat) {
     gsap.to(mat.color, {
