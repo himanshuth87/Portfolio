@@ -11,6 +11,7 @@ import { messagePopup } from "./message-popup";
 import { penguin } from "./penguin";
 import { music } from "./music";
 import { frame } from "./frame";
+import { lightSwitch } from "./light-switch";
 
 import type { Object3D } from "three";
 
@@ -44,6 +45,7 @@ const init = () => {
 
   if (objects?.music) music.init(objects.music);
   if (objects?.frame) frame.init(objects.frame);
+  lightSwitch.init();
 };
 
 const initObjects = () => {
@@ -109,6 +111,7 @@ const destroy = () => {
   mouse.destroy();
   penguin.destroy();
   music.destroy();
+  lightSwitch.destroy();
 };
 
 export const room = { init, destroy, group, chairScrollRotation };
