@@ -8,7 +8,7 @@ const init = (targetFrame: Mesh) => {
   // Fix orientation for our clean plane
   texture.flipY = false;
   texture.center.set(0.5, 0.5);
-  texture.rotation = Math.PI / 2; // Try opposite rotation
+  texture.rotation = Math.PI / 2; // Fixed rotation direction
 
   // Create a clean material for the photo
   const material = new MeshBasicMaterial({ 
@@ -34,20 +34,28 @@ const init = (targetFrame: Mesh) => {
     photoMesh.position.copy(center);
     
     // Scale it to match the tablet's dimensions
-    // For a tablet on the right wall, Y is height and Z is width
     const width = size.z;
     const height = size.y;
     photoMesh.scale.set(width, height, 1);
     
-    // Face the room center (out of the right wall)
+    // Face the room center
     photoMesh.rotation.y = Math.PI / 2;
   }
 
-  // Tiny offset to prevent z-fighting
-  photoMesh.position.x += 0.01; 
+  // Increased offset to 0.02 to clear the "black spot" and prevent z-fighting
+  photoMesh.position.x += 0.02; 
 
   // Add the photo mesh to the target frame
   targetFrame.add(photoMesh);
+
+  // Hide the original frame material to remove unwanted details like the black spot
+  if (targetFrame.material) {
+    if (Array.isArray(targetFrame.material)) {
+      targetFrame.material.forEach(m => m.visible = false);
+    } else {
+      targetFrame.material.visible = false;
+    }
+  }
 };
 
 export const frame = { init };
