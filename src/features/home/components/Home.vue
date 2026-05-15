@@ -2,7 +2,7 @@
 import Layout from "../../../components/Layout.vue";
 import Hero from "./Hero.vue";
 import About from "./About.vue";
-//import AboutSections from "../features/about/Sections.vue";
+import AboutSections from "./AboutSections.vue";
 import Projects from "./Projects.vue";
 import Contact from "./Contact.vue";
 import Footer from "../../../components/Footer.vue";
@@ -157,6 +157,7 @@ watch(
         <div class="intro-wrapper-spacer"></div>
         <div class="about-spacer" ref="aboutSpacerRef" id="about"></div>
       </div>
+      <AboutSections />
       <Projects id="projects" @loaded="handleProjectsLoaded" />
       <div ref="contactRef" class="home-contact">
         <Contact id="contact" v-if="projectsLoaded" />

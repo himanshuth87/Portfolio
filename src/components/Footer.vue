@@ -5,6 +5,8 @@ import NotchSection from "./NotchSection.vue";
 import ButtonRound from "./ButtonRound.vue";
 import { lenis } from "../composables/useScroll";
 import ArrowRightLong from "./icons/ArrowRightLong.vue";
+import Link from "./Link.vue";
+import { t } from "../i18n/utils/translate";
 
 interface Props {
   withSocial?: boolean;
@@ -37,6 +39,10 @@ const { withSocial = true } = defineProps<Props>();
       <div class="footer-top">
         <Social v-if="withSocial" />
         <div class="footer-top-links">
+          <div class="footer-top-links-legal">
+            <Link href="/legal" class="footer-link">{{ t("legal") }}</Link>
+            <Link href="/privacy" class="footer-link">{{ t("privacy") }}</Link>
+          </div>
           <LangSwitch />
         </div>
       </div>

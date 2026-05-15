@@ -98,6 +98,17 @@ const getInTouchClassNames = computed(() => {
     <div class="header-right">
       <Button
         renderAs="a"
+        variant="border"
+        href="/resume.pdf"
+        target="_blank"
+        size="sm"
+        class="header-resume"
+        data-cursor="circle-white"
+        data-hoversound="hover"
+        >{{ t("resume") }}</Button
+      >
+      <Button
+        renderAs="a"
         variant="accent"
         :aria-label="t('get-in-touch')"
         :href="social.find((item) => item.name === 'mail')?.url ?? ''"
@@ -187,6 +198,14 @@ const getInTouchClassNames = computed(() => {
   }
 
   &-get-in-touch {
+    display: flex;
+
+    @include mixins.mq("md") {
+      display: flex;
+    }
+  }
+
+  &-resume {
     display: none;
 
     @include mixins.mq("md") {
